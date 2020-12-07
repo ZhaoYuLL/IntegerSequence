@@ -38,7 +38,16 @@ public class Range implements IntegerSequence{
   //This will return the current value, it will also increase current value by 1.
   //e.g.  if current is 5. This will make current 6, and return 5.
   public int next(){
-    return 1;
+    int temp = current;
+    try{
+      if(current>end){
+        throw new NoSuchElementException("Current must not be greater than end");
+      }
+      current++;
+    }catch(NoSuchElementException e){
+      throw new NoSuchElementException("Current must not be greater than end");
+    }
+     return temp;
   }
 
 }
