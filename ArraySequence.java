@@ -12,7 +12,7 @@ public class ArraySequence implements IntegerSequence{
     currentIndex = data[0];
   }
   public int length(){
-    return 1;
+    return data.length;
   }
 
   //When current is no longer a valid element in the range, it should return false.
