@@ -17,13 +17,22 @@ public class ArraySequence implements IntegerSequence{
 
   //When current is no longer a valid element in the range, it should return false.
   public boolean hasNext(){
-    return true;
+    return currentIndex < data.length;
   }
 
   //@throws NoSuchElementException when hasNext() is false.
   //This will return the current value, it will also increase current value by 1.
   //e.g.  if current is 5. This will make current 6, and return 5.
   public int next(){
-    return 1;
+    int temp = currentIndex;
+    try{
+      if(currentIndex>=data.length){
+        throw new NoSuchElementException("Current must not be greater than end");
+      }
+      currentIndex++;
+    }catch(NoSuchElementException e){
+      throw new NoSuchElementException("Current must not be greater than end");
+    }
+     return data[temp];
   }
 }
